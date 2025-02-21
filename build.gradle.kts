@@ -20,3 +20,10 @@ java {
         languageVersion.set(JavaLanguageVersion.of(8))
     }
 }
+
+develocity {
+    buildScan {
+        tag(if (System.getenv("CI").isNullOrEmpty()) "Local" else "frontend-engineer")
+        tag(System.getProperty("os.name"))
+    }
+}
