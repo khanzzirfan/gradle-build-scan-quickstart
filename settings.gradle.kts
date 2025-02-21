@@ -4,3 +4,10 @@ plugins {
 }
 
 rootProject.name = "gradle-build-scan-quickstart"
+
+develocity {
+    buildScan {
+        tag(if (System.getenv("CI").isNullOrEmpty()) "Local" else "frontend-engineer")
+        tag(System.getProperty("os.name"))
+    }
+}
